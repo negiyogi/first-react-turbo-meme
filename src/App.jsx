@@ -1,28 +1,24 @@
-import './App.css';
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+import Dashboard from './Dashboard';
+import KBC from './KBC';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Layout from './components/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/About" element={<Layout component={<About />} />} />
+        <Route path="/Dashboard" element={<Layout component={<Dashboard />} />} />
+        <Route path="/KBC" element={<Layout component={<KBC />} />} />
+        {/* <Route path="/KBC" element={<KBC />} /> */}
+        <Route path="/" element={<Layout component={<Home />} />} />
+      </Routes>
+    </Router>
   );
 }
 
